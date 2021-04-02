@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        
+    <link rel="stylesheet" href="static/css/main.css"/>
+
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+
+    <title>UFOs</title>
+  </head>
+
+  <body>
+    <div class="top_container">
+      <label class="logo">UFO SIGHTINGS SEARCH LIBRARY</label>  
+        <p>Welcome. This sites contains a searchable list of over 100 UFO sighting during the period of January 1 to January 9, 2010.</p> 
+        <p>You are able to search based on one criterion or using key words. </p>   
+    </div>
+
+    <div class="s008">
+      <form>
+        <div class="inner-form">
+          <div class="basic-search">
+            <div class="input-field">
+              <input id="search" type="text" placeholder="Enter Keywords for your Search" />
+              <div class="icon-wrap">
+                <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 20 20">
+                  <path d="M18.869 19.162l-5.943-6.484c1.339-1.401 2.075-3.233 2.075-5.178 0-2.003-0.78-3.887-2.197-5.303s-3.3-2.197-5.303-2.197-3.887 0.78-5.303 2.197-2.197 3.3-2.197 5.303 0.78 3.887 2.197 5.303 3.3 2.197 5.303 2.197c1.726 0 3.362-0.579 4.688-1.645l5.943 6.483c0.099 0.108 0.233 0.162 0.369 0.162 0.121 0 0.242-0.043 0.338-0.131 0.204-0.187 0.217-0.503 0.031-0.706zM1 7.5c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5-2.916 6.5-6.5 6.5-6.5-2.916-6.5-6.5z"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+          <div class="advance-search">
+            <span class="desc">Field Search Options - Please Select One.</span>
+            <div class="row">
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "country">
+                    <option placeholder="" value="">Country</option>
+                    <option value="us">USA</option>
+                    <option value="ca">Canada</option>                    
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "state">
+                    <option placeholder="" value="">State</option>
+                    <option value="al">AL</option>
+                    <option value="ak">AK</option>
+                    <option value="az">AZ</option>                    
+                    <option value="ar">AR</option>
+                    <option value="ca">CA</option>
+                    <option value="co">CO</option>
+                    <option value="ct">CT</option>
+                    <option value="de">DE</option>
+                    <option value="fl">FL</option>
+                    <option value="ga">GA</option>
+                    <option value="hi">HI</option>
+                    <option value="id">ID</option>
+                    <option value="il">IL</option>
+                    <option value="in">IN</option>
+                    <option value="ia">IA</option>
+                    <option value="ks">KS</option>
+                    <option value="ky">KY</option>
+                    <option value="la">LA</option>
+                    <option value="me">ME</option>
+                    <option value="md">MD</option>
+                    <option value="ma">MA</option>
+                    <option value="mi">MI</option>
+                    <option value="mn">MN</option>
+                    <option value="ms">MS</option>
+                    <option value="mo">MO</option>
+                    <option value="mt">MT</option>
+                    <option value="ne">NE</option>
+                    <option value="nv">NV</option>
+                    <option value="nh">NH</option>
+                    <option value="nj">NJ</option>
+                    <option value="nm">NM</option>
+                    <option value="ny">NY</option>
+                    <option value="nc">NC</option>
+                    <option value="nd">ND</option>
+                    <option value="oh">OH</option>
+                    <option value="ok">OK</option>
+                    <option value="or">OR</option>
+                    <option value="pa">PA</option>
+                    <option value="ri">RI</option>
+                    <option value="sc">SC</option>
+                    <option value="sd">SD</option>
+                    <option value="tn">TN</option>
+                    <option value="tx">TX</option>
+                    <option value="ut">UT</option>
+                    <option value="vt">VT</option>
+                    <option value="va">VA</option>
+                    <option value="wa">WA</option>
+                    <option value="wv">WV</option>
+                    <option value="wi">WI</option>
+                    <option value="wy">WY</option>
+                    <option value="on">ON</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "city">
+                    <option placeholder="" value="">City</option>
+                    <option></option>
+                    <option></option>
+                    <option></option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row second">
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "datetime">
+                    <option placeholder="" value="">Date</option>
+                    <option value="1/1/2010">1/1/2010</option>
+                    <option value="1/2/2010">1/2/2010</option>
+                    <option value="1/3/2010">1/3/2010</option>
+                    <option value="1/4/2010">1/4/2010</option>
+                    <option value="1/5/2010">1/5/2010</option>
+                    <option value="1/6/2010">1/6/2010</option>
+                    <option value="1/7/2010">1/7/2010</option>
+                    <option value="1/8/2010">1/8/2010</option>
+                    <option value="1/9/2010">1/9/2010</option>
+                    <option value="1/10/2010">1/10/2010</option>
+                    <option value="1/11/2010">1/11/2010</option>
+                    <option value="1/12/2010">1/12/2010</option>
+                    <option value="1/13/2010">1/13/2010</option>                    
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "durationMinutes">
+                    <option placeholder="" value="">Duration</option>
+                    <option value=1>Less than 1 minute</option>
+                    <option value=5>Less than 5 minutes</option>
+                    <option value=10>Less than 10 minutes</option>
+                    <option value=30>Less than 30 minutes</option>
+                    <option value=31>Over 30 minutes</option>
+                  </select>
+                </div>
+              </div>
+              <div class="input-field">
+                <div class="input-select">
+                  <select class= "selData" id= "shape">
+                    <option placeholder="" value="">Shape</option>
+                    <option value="changing">Changing</option>
+                    <option value="chevron">Chevron</option>
+                    <option value="cigar">Cigar</option>
+                    <option value="circle">Circle</option>
+                    <option value="cross">Cross</option>
+                    <option value="cylinder">Cylinder</option>
+                    <option value="disk">Disk</option>
+                    <option value="fireball">Fireball</option>
+                    <option value="flash">Flash</option>
+                    <option value="formation">Formation</option>
+                    <option value="light">Light</option>
+                    <option value="oval">Oval</option>
+                    <option value="rectangle">Rectangle</option>
+                    <option value="spehere">Sphere</option>
+                    <option value="teardrop">Teardrop</option>
+                    <option value="triangle">Triangle</option>
+                    <option value="other">Other</option>
+                    <option value="unknown">Unknown</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="row third">
+              <div class="input-field">
+                <div class="group-btn">
+                  <button class="btn-delete" id="delete">Reset</button>
+                  <button class="btn-search">Search</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="table-ctn">          
+            <table id="ufo-table" class="table-striped">
+              <thead>
+                <tr>
+                  <th class="table-head">Date</th>
+                  <th class="table-head">City</th>
+                  <th class="table-head">State</th>
+                  <th class="table-head">Country</th>
+                  <th class="table-head">Shape</th>
+                  <th class="table-head">Duration</th>
+                  <th class="table-head">Comments</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>  
+
+
+      </form>
+      
+        </div>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+
+
+    <script src="static/js/data.js"></script>
+    <script src="static/js/main.js"></script>
+    
+
+    
+    
+
+   
+  </body>
+</html>
